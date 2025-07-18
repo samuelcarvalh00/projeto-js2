@@ -46,7 +46,7 @@ main section {
 }
 
 form {
-  background-color: #080808cc;
+  background-color: #080808a9;
   border-radius: 1rem;
   padding: 2.5rem;
   max-width: 462px;
@@ -152,7 +152,7 @@ form button:last-child {
 }
 
 aside {
-  background-color: #080808cc;
+  background-color:  #080808a9;
   border-radius: 1rem;
   padding: 2.5rem;
   max-width: 462px;
