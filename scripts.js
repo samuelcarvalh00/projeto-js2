@@ -6,6 +6,8 @@ const category = document.getElementById("category");
 
 // Seleciona os elementos da lista
 const expenselist = document.querySelector("ul");
+const expensequantity = document.querySelector("aside header p span");
+const expensestotal = document.querySelector("aside header h2");
 
 // Captura o evento de input para formatar o valor em centavos
 amount.oninput = () => {
@@ -36,7 +38,7 @@ form.onsubmit = (event) => {
         expense: expense.value,
         category_id: category.value,
         category_name: category.options[category.selectedIndex].text,
-        amount: amount.value.replace("R$", "").trim(), // Remove o símbolo R$ para cálculo se necessário
+        amount: amount.value.replace("R$", ""), // Remove o símbolo R$ para cálculo se necessário
         created_at: new Date(),
     };
 
@@ -90,8 +92,82 @@ function expenseAdd(newExpense) {
         // Limpa o formulário após adicionar
         form.reset();
 
+        //limpa o formulario para adicionar uma nova despesa
+        formclear();
+
+        //atualiza os totais
+        updateTotals();
+
     } catch (error) {
         alert("Não foi possível atualizar a lista de despesas");
         console.log(error);
     }
+}
+
+//atualiza os totais
+function updateTotals() {
+    try{
+        //recupera todos os itens da lista
+        const items = expenselist.children
+
+    //atualiza a quantidade de itens  da lista 
+    expensequantity.textContent =`${items.length} ${items.length > 1 ? "despesas" : "despesa"}`
+
+    //variável para armazenar o total
+    let total = 0;
+    //percorre cada item(li) da lista (ul)
+    for(let item = 0; item <items.length; item++){
+        const itemamount = items[item].querySelector(".expense-amount")
+
+        //remove caracteres nao numericos e substitui a virula por ponto
+        let value = itemamount.textContent.replace(/[^\d,]/g, "").replace(",", ".")
+
+        //converte o valor para float
+        value = parseFloat(value);
+
+        //verifica se um numero valido
+        if(isNaN(value)){
+            return alert("Valor inválido encontrado na lista de despesas");
+        }
+         //incrementa o total
+        total += Number(value)
+    }
+
+    //cria a spon para adicionar o R$ formatado
+    const symbomBRL = document.createElement("small");
+    symbomBRL.textContent = "R$";
+
+    //formata o valor e remove o símbolo R$ que sera exibido pela small com um estilo customizado
+    total = formatCurrencyBRL(total).toUpperCase().replace("R$", "")
+    //limpa o conteudo do elemento
+    expensestotal.innerHTML = "";
+    //adicionao simbolo e o total formatado
+    expensestotal.append(symbomBRL, total);
+
+    } catch (error) {
+        console.log(error)
+        alert("Não foi possível atualizar os totais")  
+    }
+}
+
+//evento que captura o clique nos itens da lista
+expenselist.addEventListener("click", function(event){
+    //verifica se o elemento clicado é o ícone de remover
+    if(event.target.classList.contains("remove-icon")){
+        //obtem a li pai do elemento clicado
+        const item = event.target.closest(".expense")
+        //remove o item da lista
+        item.remove()
+        //atualiza o total
+        updateTotals()
+    }
+})
+
+function formclear(){
+    expense.value = ""
+    category.value = ""
+    amount.value = ""
+
+    //colocao o foco no campo do input
+    expense.focus()
 }

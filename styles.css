@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 100vh;
 
-  background-color: #e4ece9;
+  background-color: #49453fe1;
 
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ main section {
 }
 
 form {
-  background-color: #f9fbfa;
+  background-color: #f9fbfac5;
   border-radius: 1rem;
   padding: 2.5rem;
   max-width: 462px;
@@ -135,7 +135,7 @@ form button {
   border: none;
   font-size: 0.87rem;
   color: #ffffff;
-  background-color: #1f8459;
+  background-color: #1f8458d3;
   font-weight: 700;
   padding: 1rem 1.25rem;
   cursor: pointer;
@@ -152,7 +152,7 @@ form button:last-child {
 }
 
 aside {
-  background-color: #f9fbfa;
+  background-color: #f9fbfac5;
   border-radius: 1rem;
   padding: 2.5rem;
   max-width: 462px;
