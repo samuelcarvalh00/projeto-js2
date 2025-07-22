@@ -168,6 +168,6 @@ function formclear(){
     category.value = ""
     amount.value = ""
 
-    //colocao o foco no campo do input
+    //coloca foco no campo do input
     expense.focus()
 }

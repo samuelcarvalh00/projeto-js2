@@ -91,7 +91,7 @@ select {
   padding: 0 1rem;
   font-size: 0.87rem;
   color: hsl(0, 0%, 99%);
-  background-color: transparent;
+  background-color: rgba(77, 97, 78, 0);
   outline: none;
 }
 
@@ -102,10 +102,13 @@ select {
   background-position: right 0.7rem top 50%;
   background-size: 1.25rem auto;
 }
+select option{
+  background-color: #00000098;
+}
 
 input::placeholder,
 select:invalid {
-  color: #e0eee9;
+  color: #ffffff;
 }
 
 input:focus,
@@ -233,23 +236,23 @@ aside ul {
 
 .expense-info strong {
   font-size: 0.87rem;
-  color: #1f2523;
+  color: #ffffff;
 }
 
 .expense-info span {
   font-size: 0.75rem;
-  color: #4d5c57;
+  color: #dfdfdf;
 }
 
 .expense-amount {
   font-size: 0.87rem;
-  color: #1f2523;
+  color: #fafafa;
   font-weight: 600;
 }
 
 .expense-amount small {
   font-size: 0.75rem;
-  color: #4d5c57;
+  color: #ffffff;
   font-weight: 400;
   margin-right: 0.25rem;
 }
