@@ -18,24 +18,25 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e4ece9;
+  background: #d0ffed;
 }
 
 body {
   width: 100%;
   height: 100vh;
 
-  background-color: #3f3c37f6;
+background: radial-gradient(circle at left, #1f1e19c5 5%, #994e8fb6 98%);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
   color: #eeeaea;
 }
 
+
 .logo {
   margin: 3rem 0 2rem;
+  width: 8rem;
 }
 
 main section {
@@ -84,7 +85,7 @@ fieldset:focus-within legend {
 
 input,
 select {
-  flex: 1;
+  flex: 2;
   height: 3rem;
   border-radius: 0.5rem;
   border: 1px solid #cdd5d2;
@@ -96,14 +97,14 @@ select {
 }
 
 select {
-  appearance: none;
+  appearance: initial;
   background-image: url(img/chevron-down.svg);
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 1.25rem auto;
 }
 select option{
-  background-color: #00000098;
+  background-color: #241d1da2;
 }
 
 input::placeholder,
@@ -113,7 +114,7 @@ select:invalid {
 
 input:focus,
 select:focus {
-  border: 1.5px solid #1f8459;
+  border: 1.5px solid #000000;
 }
 
 .inputs-row {
@@ -139,11 +140,12 @@ form button {
   font-size: 0.87rem;
   color: #ffffff;
   background-color: #1f8458d3;
+  opacity: 0.8;
   font-weight: 700;
   padding: 1rem 1.25rem;
   cursor: pointer;
 
-  transition: background-color 0.2s;
+  transition: background-color 0.6s;
 }
 
 button:hover {
@@ -157,7 +159,7 @@ form button:last-child {
 aside {
   background-color:  #080808a9;
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 4.2rem;
   max-width: 462px;
 
   min-width: 600px;
